@@ -7,6 +7,18 @@ public class Deck {
    public Deck(){
       deck = new ArrayList<Card>();
       //TODO: Add a card (2-14) of each suit (h,s,d,c)
+      for(int i=2; i<=14; i++){
+        //for each number add one from each suit
+         Card heart = new Card(i,"h");
+         Card diamond = new Card(i, "d");
+         Card spade = new Card(i,"s");
+         Card clubs = new Card(i,"c");
+         //add to the ArrayList
+         deck.add(heart);
+         deck.add(diamond);
+         deck.add(spade);
+         deck.add(clubs);
+      }
    }
 
    public Card remove(){
