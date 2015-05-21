@@ -34,7 +34,7 @@ public class Controller
    }
 
    public static String findWinner(){
-      int result = hand1.compareTo(hand2);
+      int result = deck.compareTo();
       if(result == 1)
         return "P1 Wins";
       if(result == -1)

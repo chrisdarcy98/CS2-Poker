@@ -1,5 +1,7 @@
 import java.util.*;
 
+int points = -1;
+int points2;
 public class Hand implements Comparable {
    private ArrayList<Card> hand;
 
@@ -48,37 +50,98 @@ public class Hand implements Comparable {
    WORST
    */
    public String handValue() {
-     if(flush() == true && strait() == true){
-       if(hand.get(5) == 14){
-         return "Royal Flush";
+     if(points = -1){
+       if(hand.flush() == true && hand.strait() == true){
+         if(hand.get(5) == 14){
+           return "Royal Flush";
+           points = 0;
+         }
+         else{
+           return "Strait Flush";
+           points = 1;
+         }
        }
-       else{
-         return "Strait Flush";
-       }
-     }
-     //idk how to do full house
-     if(hand.pairs() == 4){
-       return "Four of a Kind";
-     }
-     else if(hand.pair() == 3){
-       return "Three of a Kind";
-     }
-     else if(hand.pair() == 2){
-       return "Two pair";
-     }
-     else if(hand.pair() == 1){
-       return "Two of a Kind";
-     }
-     else if(hand.pair() == 0){
-       return "High Card";
-     }
-     else if(hand.flush() == True){
-       return "Flush";
-     }
-     else if(hand.strait() == True){
-       return "Strait";
-     }
+       //idk how to do full house
+       if(hand.pairs() == 4){
+         return "Four of a Kind";
+         points = 2;
 
+       }
+       else if(hand.pairs() == 5){
+         return "Full House"
+         points = 3;
+       }
+       else if(hand.pair() == 3){
+         return "Three of a Kind";
+         points = 6;
+       }
+       else if(hand.pair() == 2){
+         return "Two pair";
+         points = 7;
+       }
+       else if(hand.pair() == 1){
+         return "Two of a Kind";
+         points = 8;
+       }
+       else if(hand.pair() == 0){
+         return "High Card";
+         points = 9;
+       }
+       else if(hand.flush() == True){
+         return "Flush";
+         points = 4;
+       }
+       else if(hand.strait() == True){
+         return "Strait";
+         points = 5;
+       }
+     }
+     else {
+       if(hand.flush() == true && hand.strait() == true){
+         if(hand.get(5) == 14){
+           return "Royal Flush";
+           points2 = 0;
+         }
+         else{
+           return "Strait Flush";
+           points2 = 1;
+         }
+       }
+       //idk how to do full house
+       if(hand.pairs() == 4){
+         return "Four of a Kind";
+         points2 = 2;
+
+       }
+       else if(hand.pairs() == 5){
+         return "Full House"
+         points2 = 3;
+       }
+       else if(hand.pair() == 3){
+         return "Three of a Kind";
+         points2 = 6;
+       }
+       else if(hand.pair() == 2){
+         return "Two pair";
+         points2 = 7;
+       }
+       else if(hand.pair() == 1){
+         return "Two of a Kind";
+         points2 = 8;
+       }
+       else if(hand.pair() == 0){
+         return "High Card";
+         points2 = 9;
+       }
+       else if(hand.flush() == True){
+         return "Flush";
+         points2 = 4;
+       }
+       else if(hand.strait() == True){
+         return "Strait";
+         points2 = 5;
+       }
+     }
 
 
    }
@@ -165,12 +228,14 @@ public class Hand implements Comparable {
    }
 
    public int compareTo(Object x){
-      Hand other = (Hand)x;
-      if(hand.convertValue(hand.handValue()) - other.convertValue(other.handValue()) > 0)
-         return 1;
-      if(hand.convertValue(hand.handValue()) - other.convertValue(other.handValue()) < 0)
-         return (-1);
-      if(hand.convertValue(hand.handValue()) - other.convertValue(other.handValue()) == 0)
-         return 0;
+      if(points < points2){
+        return 1;
+      }
+      if(points > points2){
+        return -1;
+      }
+      else{
+        return 0;
+      }
    }
 }
