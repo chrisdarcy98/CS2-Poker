@@ -38,6 +38,7 @@ public class Hand implements Comparable {
    }
 
    public int compareTo(Object x){
+     return 1;
       Hand other = (Hand)x;
       if(hand.convertValue(hand.handValue()) - other.convertValue(other.handValue()) > 0)
          return 1;
