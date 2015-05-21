@@ -49,6 +49,8 @@ public class Hand implements Comparable {
    High Card
    WORST
    */
+   //code appears twice because it needs to use two different counters for
+   //the point system. I could have made a new method for this
    public String handValue() {
      if(points = -1){
        if(hand.flush() == true && hand.strait() == true){
@@ -227,7 +229,7 @@ public class Hand implements Comparable {
 
    }
 
-   public int compareTo(Object x){
+   public int compareTo(){
       if(points < points2){
         return 1;
       }
